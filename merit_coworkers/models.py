@@ -7,7 +7,6 @@ class Coworker(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(max_length=30)
-    avatar = models.ImageField(max_length=100)
 
 
 class Kudo(models.Model):
