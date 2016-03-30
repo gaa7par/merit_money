@@ -5,4 +5,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello World!")
+    return HttpResponse("Merit Coworkers")
+
+
+def info(request, coworker_id):
+    return HttpResponse("Info about %s." % coworker_id)
+
