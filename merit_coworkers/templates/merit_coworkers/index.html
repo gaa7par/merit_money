@@ -1,7 +1,7 @@
 {% if coworkers %}
     {% for coworker in coworkers %}
-        <a href="/merit_coworkers/{{ coworker.id }}/">{{ coworker.first_name }}</a>
-        <a href="/merit_coworkers/{{ coworker.id }}/">{{ coworker.last_name }}</a>
+        <p><a href="{% url 'merit_coworkers:info' coworker.id %}">{{ coworker.first_name }}</a></p>
+        <p><a href="{% url 'merit_coworkers:info' coworker.id %}">{{ coworker.last_name }}</a></p>
     {% endfor %}
 {%  else %}
     <p>No coworkers (yet)!</p>

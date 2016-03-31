@@ -1,5 +1,11 @@
-<h1>{{ coworker.first_name }}{{ coworker.last_name }}</h1>
-{% for kudo in coworker.kudo_set.all %}
-    {{ kudo.comment }}
-{% endfor %}
+<h1>{{ coworker.first_name }} {{ coworker.last_name }}</h1>
+
+{% if error_message %}<p>{{ error_message }}</p>{% endif %}
+
+<form action="{% url 'merit_coworkers:give_kudo' coworker.id %}" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="kudo" id="kudo{{ forloop.counter }}" value="{{ kudo.id }}" />
+    <input type="submit" value="+1" />
+</form>
 

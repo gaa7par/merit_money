@@ -1,0 +1,8 @@
+<h1>{{ coworker.first_name }} {{ coworker.last_name }}</h1>
+
+{% for kudo in coworker.kudo_set.all %}
+    {{ kudo.comment }} -- {{ kudo.kudo }} kudo{{ kudo.kudos|pluralize }}
+{% endfor %}
+
+<a href="{% url 'merit_coworkers:info' %}">Give more kudos</a>
+
