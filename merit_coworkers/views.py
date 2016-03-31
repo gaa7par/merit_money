@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 
 from .models import Coworker
 
@@ -11,6 +12,11 @@ def index(request):
     return render(request, 'merit_coworkers/index.html', context)
 
 
-def info(request):
-    return render(request)
+def info(request, coworker_id):
+    try:
+        coworker = Coworker.objects.get(pk=coworker_id)
+    except Coworker.DoesNotExists:
+        raise Http404("Coworker does not exists")
+    context = {'coworker': coworker}
+    return render(request, 'merit_coworkers/info.html', context)
 
